@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "Lighthouse to GitHub",
+    "short_name": "Lighthouse to GitHub",
+    "version": "0.0.1",
+    "description": "Adds a button to Lighthouse tickets to push them to GitHub",
+    "homepage_url": "https://github.com/fetch",
+    "permissions": [
+        "https://*.lighthouseapp.com/*"
+    ],
+    "icons": {
+        "128": "icons/icon128.png",
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png"
+    },
+    "content_scripts": [
+        {
+            "all_frames": false,
+            "css": [
+                "lib/lighthouse/ticket.css"
+            ],
+            "js": [
+                "lib/lighthouse/ticket.js"
+            ],
+            "matches": [
+                "https://*.lighthouseapp.com/projects/*/tickets/*",
+                "http://*.lighthouseapp.com/projects/*/tickets/*"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "web_accessible_resources": [
+        "images/github-logo.png"
+    ]
+}
